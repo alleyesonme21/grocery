@@ -4,9 +4,20 @@ $("form#enter").submit(function() {
     var item2 = $("#item2").val();
     var item3 = $("#item3").val();
 
-    $(".food").text(item1);
-    $(".food2").text(item2);
-    $(".food3").text(item3);
+    var lists = [];
+    lists.push(item1);
+    lists.push(item2);
+    lists.push(item3);
+    
+    lists.sort();
+    
+    lists = lists.map(function(x){
+        return x.toUpperCase();
+    });
+
+    $(".food").text(lists[0]);
+    $(".food2").text(lists[1]);
+    $(".food3").text(lists[2]);
 
 
     $("#enter").hide();
